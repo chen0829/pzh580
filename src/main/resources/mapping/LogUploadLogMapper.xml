@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sq580.pzh580.persistence.auto.mapper.LogUploadLogMapper">
+  <resultMap id="BaseResultMap" type="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    <id column="ulid" jdbcType="VARCHAR" property="ulid" />
+    <result column="fromip" jdbcType="VARCHAR" property="fromip" />
+    <result column="toip" jdbcType="VARCHAR" property="toip" />
+    <result column="crtime" jdbcType="TIMESTAMP" property="crtime" />
+    <result column="uploadtime" jdbcType="TIMESTAMP" property="uploadtime" />
+    <result column="uploadstatus" jdbcType="INTEGER" property="uploadstatus" />
+    <result column="source" jdbcType="INTEGER" property="source" />
+    <result column="errmsg" jdbcType="VARCHAR" property="errmsg" />
+    <result column="social" jdbcType="VARCHAR" property="social" />
+    <result column="checkupid" jdbcType="VARCHAR" property="checkupid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    <result column="fromparam" jdbcType="LONGVARCHAR" property="fromparam" />
+    <result column="toparam" jdbcType="LONGVARCHAR" property="toparam" />
+    <result column="toresponse" jdbcType="LONGVARCHAR" property="toresponse" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ulid, fromip, toip, crtime, uploadtime, uploadstatus, source, errmsg, social, checkupid
+  </sql>
+  <sql id="Blob_Column_List">
+    fromparam, toparam, toresponse
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from log_uploadlog
+    where ulid = #{ulid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from log_uploadlog
+    where ulid = #{ulid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    insert into log_uploadlog (ulid, fromip, toip, 
+      crtime, uploadtime, uploadstatus, 
+      source, errmsg, social, 
+      checkupid, fromparam, toparam, 
+      toresponse)
+    values (#{ulid,jdbcType=VARCHAR}, #{fromip,jdbcType=VARCHAR}, #{toip,jdbcType=VARCHAR}, 
+      #{crtime,jdbcType=TIMESTAMP}, #{uploadtime,jdbcType=TIMESTAMP}, #{uploadstatus,jdbcType=INTEGER}, 
+      #{source,jdbcType=INTEGER}, #{errmsg,jdbcType=VARCHAR}, #{social,jdbcType=VARCHAR}, 
+      #{checkupid,jdbcType=VARCHAR}, #{fromparam,jdbcType=LONGVARCHAR}, #{toparam,jdbcType=LONGVARCHAR}, 
+      #{toresponse,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    insert into log_uploadlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ulid != null">
+        ulid,
+      </if>
+      <if test="fromip != null">
+        fromip,
+      </if>
+      <if test="toip != null">
+        toip,
+      </if>
+      <if test="crtime != null">
+        crtime,
+      </if>
+      <if test="uploadtime != null">
+        uploadtime,
+      </if>
+      <if test="uploadstatus != null">
+        uploadstatus,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="errmsg != null">
+        errmsg,
+      </if>
+      <if test="social != null">
+        social,
+      </if>
+      <if test="checkupid != null">
+        checkupid,
+      </if>
+      <if test="fromparam != null">
+        fromparam,
+      </if>
+      <if test="toparam != null">
+        toparam,
+      </if>
+      <if test="toresponse != null">
+        toresponse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ulid != null">
+        #{ulid,jdbcType=VARCHAR},
+      </if>
+      <if test="fromip != null">
+        #{fromip,jdbcType=VARCHAR},
+      </if>
+      <if test="toip != null">
+        #{toip,jdbcType=VARCHAR},
+      </if>
+      <if test="crtime != null">
+        #{crtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadtime != null">
+        #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadstatus != null">
+        #{uploadstatus,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="errmsg != null">
+        #{errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="social != null">
+        #{social,jdbcType=VARCHAR},
+      </if>
+      <if test="checkupid != null">
+        #{checkupid,jdbcType=VARCHAR},
+      </if>
+      <if test="fromparam != null">
+        #{fromparam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toparam != null">
+        #{toparam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toresponse != null">
+        #{toresponse,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    update log_uploadlog
+    <set>
+      <if test="fromip != null">
+        fromip = #{fromip,jdbcType=VARCHAR},
+      </if>
+      <if test="toip != null">
+        toip = #{toip,jdbcType=VARCHAR},
+      </if>
+      <if test="crtime != null">
+        crtime = #{crtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadtime != null">
+        uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadstatus != null">
+        uploadstatus = #{uploadstatus,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="errmsg != null">
+        errmsg = #{errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="social != null">
+        social = #{social,jdbcType=VARCHAR},
+      </if>
+      <if test="checkupid != null">
+        checkupid = #{checkupid,jdbcType=VARCHAR},
+      </if>
+      <if test="fromparam != null">
+        fromparam = #{fromparam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toparam != null">
+        toparam = #{toparam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toresponse != null">
+        toresponse = #{toresponse,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ulid = #{ulid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    update log_uploadlog
+    set fromip = #{fromip,jdbcType=VARCHAR},
+      toip = #{toip,jdbcType=VARCHAR},
+      crtime = #{crtime,jdbcType=TIMESTAMP},
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      uploadstatus = #{uploadstatus,jdbcType=INTEGER},
+      source = #{source,jdbcType=INTEGER},
+      errmsg = #{errmsg,jdbcType=VARCHAR},
+      social = #{social,jdbcType=VARCHAR},
+      checkupid = #{checkupid,jdbcType=VARCHAR},
+      fromparam = #{fromparam,jdbcType=LONGVARCHAR},
+      toparam = #{toparam,jdbcType=LONGVARCHAR},
+      toresponse = #{toresponse,jdbcType=LONGVARCHAR}
+    where ulid = #{ulid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sq580.pzh580.persistence.auto.model.LogUploadLog">
+    update log_uploadlog
+    set fromip = #{fromip,jdbcType=VARCHAR},
+      toip = #{toip,jdbcType=VARCHAR},
+      crtime = #{crtime,jdbcType=TIMESTAMP},
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      uploadstatus = #{uploadstatus,jdbcType=INTEGER},
+      source = #{source,jdbcType=INTEGER},
+      errmsg = #{errmsg,jdbcType=VARCHAR},
+      social = #{social,jdbcType=VARCHAR},
+      checkupid = #{checkupid,jdbcType=VARCHAR}
+    where ulid = #{ulid,jdbcType=VARCHAR}
+  </update>
+</mapper>
