@@ -2,10 +2,14 @@ package com.sq580.pzh580.persistence.auto.model;
 
 import lombok.Data;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 @Data
+@Table(name="log_uploadlog")
 public class LogUploadLog implements Serializable {
+    @Id
     private String ulid;
 
     private String fromip;
