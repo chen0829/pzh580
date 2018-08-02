@@ -1,6 +1,7 @@
 package com.sq580.pzh580.persistence.auto.mapper;
 
 import com.sq580.pzh580.persistence.auto.model.LogUploadLog;
+import org.apache.ibatis.annotations.Param;
 
 public interface LogUploadLogMapper {
     int deleteByPrimaryKey(String ulid);
