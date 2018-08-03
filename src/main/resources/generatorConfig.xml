@@ -21,7 +21,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://118.89.57.43/uploadzhuhai?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://118.89.57.43/pzhdb?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
                         userId="root" password="123456">
         </jdbcConnection>
         <!-- 类型转换 -->
@@ -46,12 +46,32 @@
             <!--<property name="rootInterface" value="tk.mybatis.mapper.common.Mapper"/>-->
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="log_uploadlog" domainObjectName="LogUploadLog" enableCountByExample="false"
+        <!--<table tableName="log_uploadlog" domainObjectName="LogUploadLog" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false" />
-            <!-- 数据库表主键 -->
+            &lt;!&ndash; 数据库表主键 &ndash;&gt;
             <generatedKey column="ulid" sqlStatement="Mysql" identity="true" />
+        </table>-->
+        <!--<table tableName="t_pzh_contract_person"  domainObjectName="PzhContractPerson" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+        <table tableName="t_doctor_base_data"  domainObjectName="DoctorBaseData" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+        <table tableName="t_sq_contract_person"  domainObjectName="SqContractPerson" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>-->
+        <table tableName="t_match_contract"  domainObjectName="MatchContract" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="JDBC" />
         </table>
     </context>
 </generatorConfiguration>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sq580.pzh580.persistence.auto.mapper.DoctorBaseDataMapper">
+  <resultMap id="BaseResultMap" type="com.sq580.pzh580.persistence.auto.model.DoctorBaseData">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gw_doctor_id" jdbcType="VARCHAR" property="gwDoctorId" />
+    <result column="gw_doctor_name" jdbcType="VARCHAR" property="gwDoctorName" />
+    <result column="gw_team_id" jdbcType="VARCHAR" property="gwTeamId" />
+    <result column="gw_team_name" jdbcType="VARCHAR" property="gwTeamName" />
+    <result column="sq_org_code" jdbcType="VARCHAR" property="sqOrgCode" />
+    <result column="sq_org_name" jdbcType="VARCHAR" property="sqOrgName" />
+    <result column="sq_doctor_name" jdbcType="VARCHAR" property="sqDoctorName" />
+    <result column="sq_doctor_id" jdbcType="VARCHAR" property="sqDoctorId" />
+    <result column="sq_team_name" jdbcType="VARCHAR" property="sqTeamName" />
+    <result column="sq_team_id" jdbcType="VARCHAR" property="sqTeamId" />
+    <result column="gw_org_id" jdbcType="VARCHAR" property="gwOrgId" />
+    <result column="gw_org_no" jdbcType="VARCHAR" property="gwOrgNo" />
+    <result column="gw_org_name" jdbcType="VARCHAR" property="gwOrgName" />
+    <result column="gw_dept_name" jdbcType="VARCHAR" property="gwDeptName" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, gw_doctor_id, gw_doctor_name, gw_team_id, gw_team_name, sq_org_code, sq_org_name, 
+    sq_doctor_name, sq_doctor_id, sq_team_name, sq_team_id, gw_org_id, gw_org_no, gw_org_name, 
+    gw_dept_name, create_name, create_time, update_name, update_time, remark
+  </sql>
+</mapper>

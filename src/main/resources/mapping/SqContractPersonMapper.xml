@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sq580.pzh580.persistence.auto.mapper.SqContractPersonMapper">
+  <resultMap id="BaseResultMap" type="com.sq580.pzh580.persistence.auto.model.SqContractPerson">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="doc_no" jdbcType="VARCHAR" property="docNo" />
+    <result column="id_card_no" jdbcType="VARCHAR" property="idCardNo" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="hospital_code" jdbcType="VARCHAR" property="hospitalCode" />
+    <result column="team_code" jdbcType="VARCHAR" property="teamCode" />
+    <result column="doctor_code" jdbcType="VARCHAR" property="doctorCode" />
+    <result column="expiry_start_date" jdbcType="VARCHAR" property="expiryStartDate" />
+    <result column="expiry_end_date" jdbcType="VARCHAR" property="expiryEndDate" />
+    <result column="expiry_month" jdbcType="VARCHAR" property="expiryMonth" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, doc_no, id_card_no, name, mobile_phone, gender, state, birthday, hospital_code, 
+    team_code, doctor_code, expiry_start_date, expiry_end_date, expiry_month, address, 
+    create_name, create_time, update_name, update_time, remark
+  </sql>
+    <select id="selectIdCard" resultType="java.lang.String">
+      select id_card_no from t_sq_contract_person
+       <!--   where update_time  &gt; #{update_time} or update_time is null -->
+    </select>
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sq580.pzh580.persistence.auto.mapper.PzhContractPersonMapper">
+  <resultMap id="BaseResultMap" type="com.sq580.pzh580.persistence.auto.model.PzhContractPerson">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="doc_no" jdbcType="VARCHAR" property="docNo" />
+    <result column="id_card_no" jdbcType="VARCHAR" property="idCardNo" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, doc_no, id_card_no, name, tel, gender, state, birthday, address, create_name, 
+    create_time, update_name, update_time, remark
+  </sql>
+    <select id="selectIdCard" resultType="java.lang.String">
+      select id_card_no from t_pzh_contract_person where id_card_no in
+      <foreach collection="id_carts" item="card_no" open="(" close=")" separator="," >
+          #{card_no}
+      </foreach>
+    </select>
+</mapper>

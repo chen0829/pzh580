@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sq580.pzh580.persistence.auto.mapper.MatchContractMapper">
+  <resultMap id="BaseResultMap" type="com.sq580.pzh580.persistence.auto.model.MatchContract">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="sign_team" jdbcType="VARCHAR" property="signTeam" />
+    <result column="sign_team_name" jdbcType="VARCHAR" property="signTeamName" />
+    <result column="sign_period" jdbcType="VARCHAR" property="signPeriod" />
+    <result column="sign_period_from" jdbcType="VARCHAR" property="signPeriodFrom" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="agreement_name" jdbcType="VARCHAR" property="agreementName" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="hos_tel_phone" jdbcType="VARCHAR" property="hosTelPhone" />
+    <result column="package_id" jdbcType="VARCHAR" property="packageId" />
+    <result column="upload_state" jdbcType="TINYINT" property="uploadState" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, sign_team, sign_team_name, sign_period, sign_period_from, id_number, code, agreement_name, 
+    org_code, user_id, hos_tel_phone, package_id, upload_state, create_name, create_time, 
+    update_name, update_time, remark
+  </sql>
+</mapper>
