@@ -15,4 +15,10 @@ public interface MatchContractService {
      * @return re
      */
     ResultVo findMatchContract();
+
+    /**
+     * 增加上传的签约数据
+     * @return inst
+     */
+    int createMatchContract();
 }

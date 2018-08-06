@@ -39,25 +39,24 @@ public class Pzh580ApplicationTests {
     public void contextLoads() {
     }
 
-
-    @Test
+   /* @Test
     public void exampleUse() {
         Date date=new Date();
-        /*SqContractPerson person=new SqContractPerson();
+        *//*SqContractPerson person=new SqContractPerson();
         person.setUpdateTime(date);
-        person.setId("1747480");*/
+        person.setId("1747480");*//*
         SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String dateStr=formatter.format(date);
         log.info(dateStr);
-        /*List<String> idCards=sqContractPersonMapper.selectIdCard(dateStr);
+        *//*List<String> idCards=sqContractPersonMapper.selectIdCard(dateStr);
         log.info(idCards.toString());
         Example example=new Example(SqContractPerson.class);
         Criteria criteria=example.createCriteria();
-        */
-        /*criteria.andIn("idCardNo",idCards);*/
-        /*
+        *//*
+        *//*criteria.andIn("idCardNo",idCards);*//*
+        *//*
         criteria.andEqualTo("idCardNo",idCards.get(0));
-        sqContractPersonMapper.updateByPrimaryKeySelective(person);*/
+        sqContractPersonMapper.updateByPrimaryKeySelective(person);*//*
         SqContractPerson person=sqContractPersonMapper.selectByPrimaryKey("1747480");
         log.info(person.toString());
         person.setUpdateTime(date);
@@ -74,5 +73,5 @@ public class Pzh580ApplicationTests {
         //查询匹配的签约数据
         List<SqContractPerson> sqContractPersonList=sqContractPersonService.selectByIdCard(matchContracts);
         log.info(sqContractPersonList.toString());
-    }
+    }*/
 }

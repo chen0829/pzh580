@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class MatchContract implements Serializable {
     @Id
     @GeneratedValue(generator = "JDBC")
-    private String id;
+    private Integer id;
 
     @Column(name = "sign_team")
     private String signTeam;
@@ -66,15 +66,15 @@ public class MatchContract implements Serializable {
     /**
      * @return id
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**

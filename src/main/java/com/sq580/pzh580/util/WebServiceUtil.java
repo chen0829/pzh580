@@ -2,7 +2,6 @@ package com.sq580.pzh580.util;
 
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
-
 import com.alibaba.fastjson.JSONObject;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
@@ -48,7 +47,7 @@ public class WebServiceUtil {
      * @return
      */
     public static String sendWebServiceReq(String endpoint, String nameSpace,
-                                           String method, Map<String, String> paramsMap) {
+                                           String method, Map<String, Object> paramsMap) {
         String result = "";
         try {
             Service service = new Service();
@@ -62,7 +61,7 @@ public class WebServiceUtil {
             Object[] paramsMapValue = null;
             if (!paramsMap.isEmpty()) {
                 int index = 0;
-                for (Map.Entry<String, String> entry : paramsMap.entrySet()) {
+                for (Map.Entry<String, Object> entry : paramsMap.entrySet()) {
                     // 接口的参数
                     call.addParameter(entry.getKey(), XMLType.XSD_STRING, ParameterMode.IN);
                     paramsMapValue = new String[paramsMap.size()];

@@ -50,4 +50,13 @@ public class MatchContractServiceImpl implements MatchContractService {
         }
         return null;
     }
+
+    /**
+     * 增加上传的签约数据
+     * @return inst
+     */
+    @Override
+    public int createMatchContract() {
+        return matchContractMapper.insertMatch();
+    }
 }

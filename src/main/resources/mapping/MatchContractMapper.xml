@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="sign_team" jdbcType="VARCHAR" property="signTeam" />
     <result column="sign_team_name" jdbcType="VARCHAR" property="signTeamName" />
     <result column="sign_period" jdbcType="VARCHAR" property="signPeriod" />
@@ -32,4 +32,19 @@
     org_code, user_id, hos_tel_phone, package_id, upload_state, create_name, create_time, 
     update_name, update_time, remark
   </sql>
+    <insert id="insertMatch">
+         INSERT  INTO `t_match_contract`(`sign_team`,`sign_team_name`,`sign_period`,`sign_period_from`,`id_number`,
+         `agreement_name`,`code`,`org_code`,`user_id`,
+         `upload_state`,`create_time`,`update_time`)
+          SELECT
+          db.gw_team_id,db.gw_team_name,cp.expiry_month/12,DATE(cp.expiry_start_date),cp.id_card_no,
+          '家庭医生签约协议书（新2）' AGREEMENTNAME,pp.doc_no,db.gw_org_no,db.gw_doctor_id ,
+          0 upload_state,NOW() create_time,NOW() update_time
+          FROM t_sq_contract_person cp,
+          t_pzh_contract_person pp,
+          t_doctor_base_data db
+         WHERE cp.id_card_no = pp.id_card_no AND cp.doctor_code=db.sq_doctor_id
+            AND cp.id_card_no NOT IN (SELECT id_number FROM t_match_contract )
+
+    </insert>
 </mapper>
