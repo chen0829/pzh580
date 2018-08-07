@@ -1,5 +1,7 @@
 package com.sq580.pzh580;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.sq580.pzh580.biz.service.DoctorBaseDataService;
 import com.sq580.pzh580.biz.service.PzhContractPersonService;
 import com.sq580.pzh580.biz.service.SqContractPersonService;
@@ -74,4 +76,14 @@ public class Pzh580ApplicationTests {
         List<SqContractPerson> sqContractPersonList=sqContractPersonService.selectByIdCard(matchContracts);
         log.info(sqContractPersonList.toString());
     }*/
+
+    @Test
+    public  void testJson() {
+        String jsonStr="{\"MSGFORM\":{\"XMLDATA\":" +
+                "{\"STATUS\":\"签约团队不是该居民的管档团队，不可签约！\",\"RESULTFLAG\":0}}}";
+        JSONObject jsonObject=JSON.parseObject(jsonStr);
+        String resultFlag=jsonObject.getJSONObject("MSGFORM")
+                .getJSONObject("XMLDATA").getString("RESULTFLAG");
+        log.info(resultFlag);
+    }
 }
