@@ -2,13 +2,14 @@ package com.sq580.pzh580.util;
 
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
-import com.alibaba.fastjson.JSONObject;
+import javax.xml.rpc.ServiceException;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import java.rmi.RemoteException;
 import java.util.Map;
 
 
@@ -23,7 +24,8 @@ public class WebServiceUtil {
             call.setTargetEndpointAddress(endpoint);
             // WSDL里面描述的接口名称
             call.setOperationName(new QName("http://ws.hzehr.bsoft.com", method));
-            String jsonStr = JSONObject.toJSONString(obj);
+            JSONObject jsonObject=new JSONObject(obj);
+            String jsonStr = jsonObject.toString();
             // 接口的参数
             call.addParameter("json",
                     org.apache.axis.encoding.XMLType.XSD_STRING,
@@ -79,5 +81,31 @@ public class WebServiceUtil {
             LOGGER.error("WebServiceUtil sendWebServiceReq() 发送请求失败", e);
         }
         return result;
+    }
+
+    /**
+     * 上传邳州
+     * @param endpoint url
+     * @param method 方法名
+     * @param obj  参数
+     * @return 结果
+     */
+    public static  String sendToPzhByWebService(String endpoint, String method, Object[] obj)
+            throws ServiceException, RemoteException {
+
+        // 创建一个服务（service）调用（call）
+        Service service = new Service();
+        Call call = (Call) service.createCall();
+        // 设置service所在的url
+        call.setTargetEndpointAddress(endpoint);
+
+        // 方法名
+        call.setOperation(method);
+
+        LOGGER.info("开始调用邳州东软接口方法");
+        // 方法调用
+        String result = (String) call.invoke(obj);
+        return result;
+
     }
 }
