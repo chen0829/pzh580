@@ -25,14 +25,11 @@ server:
 # openApi的配置-begin
 openapi:
   passwd: MGJmOTI4ZDZmYzM0MTM0YjE0ZDcxNjJjYTY5Y2Q5MThiYjE0MmQwZWVhNmRhNzVjODQxODUxZDZjY2I4ZDM4Ng==
-  #appkey: sq580J4Z79Z474IES
+  appkey: sq580J4Z79Z474IES
   account: pizhoushiyunheshequweishengfuwuzhongxin
   url: http://open.sq580.com
-  #secretkey: 9AFB3UH2II6D0Q16
+  secretkey: 9AFB3UH2II6D0Q16
   taskCorn: 0/30 * * * * ?
-  #taskCorn: 0 0/1 * * * ?
-  appkey: sq580N4509I8OLO5A
-  secretkey: A9S8Q1029KLG61JL
 
 # openApi的配置-end
 
