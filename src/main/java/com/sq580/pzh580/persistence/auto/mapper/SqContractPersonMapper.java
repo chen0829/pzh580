@@ -17,4 +17,6 @@ public interface SqContractPersonMapper extends CommonMapper<SqContractPerson> {
      * @return idCards
      */
     List<String> selectIdCard(@Param("updateTime") String updateTime);
+    /*List<SqContractPerson> sqContractPersonQuery();*/
+
 }

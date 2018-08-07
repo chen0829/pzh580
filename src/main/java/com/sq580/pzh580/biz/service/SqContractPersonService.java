@@ -23,4 +23,11 @@ public interface SqContractPersonService {
      * @return user
      */
     List<SqContractPerson> selectByIdCard(List<String> idCards);
+
+    int insertContractData(List<SqContractPerson> personList);
+
+    int insertContractData(SqContractPerson person);
+
+    int updateContractData(SqContractPerson person);
+
 }
