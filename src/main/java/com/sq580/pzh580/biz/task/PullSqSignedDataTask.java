@@ -18,7 +18,7 @@ public class PullSqSignedDataTask {
     private OpenApiSignedQueryController signedQueryController;
     private static SimpleDateFormat sday = new SimpleDateFormat("yyyy-MM-dd");
 
-    @Scheduled(cron = "${openapi.taskCorn}")
+    //@Scheduled(cron = "${openapi.taskCorn}")
     public void openApiSignedQuery(){
         log.info("========openApiSignedQuery 开始=========");
         OpenApiSignedReq req = new OpenApiSignedReq();
@@ -31,7 +31,7 @@ public class PullSqSignedDataTask {
     /**
      * 避免发布的时候有遗漏数据，每天23点执行一次
      */
-    @Scheduled(cron = "0 0 23 * * ?")
+    //@Scheduled(cron = "0 0 23 * * ?")
     public void openApiSignedQueryRunOnce(){
         log.info("========openApiSignedQueryRunOnce 开始=========");
         OpenApiSignedReq req = new OpenApiSignedReq();

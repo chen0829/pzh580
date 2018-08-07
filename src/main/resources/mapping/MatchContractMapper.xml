@@ -44,7 +44,7 @@
           t_pzh_contract_person pp,
           t_doctor_base_data db
          WHERE cp.id_card_no = pp.id_card_no AND cp.doctor_code=db.sq_doctor_id
-            AND cp.id_card_no NOT IN (SELECT id_number FROM t_match_contract )
+
 
     </insert>
 </mapper>
