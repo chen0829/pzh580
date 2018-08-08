@@ -2,12 +2,14 @@ package com.sq580.pzh580;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.sq580.common.util.md5.MD5Helper;
 import com.sq580.pzh580.biz.service.DoctorBaseDataService;
 import com.sq580.pzh580.biz.service.PzhContractPersonService;
 import com.sq580.pzh580.biz.service.SqContractPersonService;
 import com.sq580.pzh580.persistence.auto.mapper.SqContractPersonMapper;
 import com.sq580.pzh580.persistence.auto.model.PzhContractPerson;
 import com.sq580.pzh580.persistence.auto.model.SqContractPerson;
+import com.sq580.pzh580.util.WebServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +21,11 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 
+import javax.xml.rpc.ServiceException;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +34,7 @@ import java.util.List;
 @SpringBootTest
 public class Pzh580ApplicationTests {
 
-    @Autowired
+    /*@Autowired
     private DoctorBaseDataService doctorBaseDataService;
     @Autowired
     private PzhContractPersonService pzhContractPersonService;
@@ -36,7 +42,7 @@ public class Pzh580ApplicationTests {
     private SqContractPersonService sqContractPersonService;
 
     @Autowired
-    private SqContractPersonMapper sqContractPersonMapper;
+    private SqContractPersonMapper sqContractPersonMapper;*/
     @Test
     public void contextLoads() {
     }
@@ -77,7 +83,7 @@ public class Pzh580ApplicationTests {
         log.info(sqContractPersonList.toString());
     }*/
 
-    @Test
+    /*@Test
     public  void testJson() {
         String jsonStr="{\"MSGFORM\":{\"XMLDATA\":" +
                 "{\"STATUS\":\"签约团队不是该居民的管档团队，不可签约！\",\"RESULTFLAG\":0}}}";
@@ -86,4 +92,33 @@ public class Pzh580ApplicationTests {
                 .getJSONObject("XMLDATA").getString("RESULTFLAG");
         log.info(resultFlag);
     }
+
+    @Test
+    public void testWebYun() {
+        StringBuilder infoBuilder=new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+
+        String businessInfo="<NETHIS><TJJG><JKDAID>430111197111174019</JKDAID>" +
+                "<NJRQ>2015-4-15</NJRQ><ZRYS>佘雨晴</ZRYS><ZRYSDM>382452496</ZRYSDM>" +
+                "<SSY>105</SSY><SZY>74</SZY><SG>135</SG><TZ>30</TZ><BMI>16.7</BMI>" +
+                "<KFXT></KFXT><STWD>36.3</STWD><NCGNDB></NCGNDB><NCGNT></NCGNT>" +
+                "<NCGNTT></NCGNTT><NCGNQX></NCGNQX><NCGQT></NCGQT><FCXDT></FCXDT>" +
+                "<XGRY>佘雨晴</XGRY><XGRYBM>382452496</XGRYBM>" +
+                "<XGJGDM>430105004010001</XGJGDM></TJJG></NETHIS>";
+        infoBuilder.append(businessInfo);
+        log.info(infoBuilder.toString());
+        Object[] obj={"HNKF","HNKF@01","GW31",businessInfo};
+        String endpoint="http://113.247.228.77:8081/NetHisWebService/NetHisWebService.asmx";
+        String nameSpace="nethis_common_business";
+        String[] params={"userId","userPassword","businessCode","businessInfo"};
+        List<String> paramList=Arrays.asList(params);
+        try {
+            String result=WebServiceUtil.sendToKaiFuByWebService(endpoint,nameSpace,paramList,obj);
+            log.info("響應:{}",result);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }*/
+
 }
