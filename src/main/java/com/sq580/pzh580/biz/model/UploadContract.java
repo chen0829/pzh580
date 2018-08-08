@@ -13,8 +13,8 @@ public class UploadContract {
     private String SIGNPERIOD;
     private String SIGNPERIODFROM;
     private String IDNUMBER;
-    private String CODE;
     private String AGREEMENTNAME;
+    private String CODE;
     private String ORGCODE;
     private String USERID;
     private String HOSTELPHONE;

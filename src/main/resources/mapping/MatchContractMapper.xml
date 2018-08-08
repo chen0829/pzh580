@@ -44,7 +44,17 @@
           t_pzh_contract_person pp,
           t_doctor_base_data db
          WHERE cp.id_card_no = pp.id_card_no AND cp.doctor_code=db.sq_doctor_id
-
-
     </insert>
+    <select id="selectUpContract" resultType="com.sq580.pzh580.biz.model.UploadContract">
+        SELECT
+          db.gw_team_id SIGNTEAM,db.gw_team_name SIGNTEAMNAME,cp.expiry_month/12 SIGNPERIOD,
+          DATE(cp.expiry_start_date) SIGNPERIODFROM,cp.id_card_no IDNUMBER,
+          '家庭医生签约协议书（新2）' AGREEMENTNAME,pp.doc_no CODE,db.gw_org_no ORGCODE,
+          db.gw_doctor_id USERID
+          FROM t_sq_contract_person cp,
+          t_pzh_contract_person pp,
+          t_doctor_base_data db
+         WHERE cp.id_card_no = pp.id_card_no AND cp.doctor_code=db.sq_doctor_id
+    </select>
+
 </mapper>

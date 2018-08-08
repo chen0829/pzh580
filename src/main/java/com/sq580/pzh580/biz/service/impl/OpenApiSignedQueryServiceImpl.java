@@ -35,6 +35,8 @@ public class OpenApiSignedQueryServiceImpl implements IOpenApiSignedQueryService
     private String url;
     @Value("${openapi.secretkey}")
     private String secretkey;
+    @Value("${openapi.hoscode}")
+    private String hoscode;
 
     @Override
     public String openApiTokenQuery() {
@@ -81,7 +83,7 @@ public class OpenApiSignedQueryServiceImpl implements IOpenApiSignedQueryService
         }
         signParamMap.put("seq",String.valueOf(seq));
         signParamMap.put("appkey", appkey);
-        signParamMap.put("hos_code", "430105021010001");
+        signParamMap.put("hos_code", hoscode);
         String signature = OpenSignedUtil.getSign(signParamMap, secretkey, "UTF-8").toUpperCase();
         signParamMap.put("signature", signature);
 
