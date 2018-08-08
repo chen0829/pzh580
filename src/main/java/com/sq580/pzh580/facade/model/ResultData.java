@@ -1,16 +1,14 @@
 package com.sq580.pzh580.facade.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
+ * 返回结果
  * @author chensh
  * @param <T>
  */
-@ApiModel(value = "返回结果")
 @Data
 public class ResultData<T> implements Serializable {
 
@@ -38,11 +36,17 @@ public class ResultData<T> implements Serializable {
     public static final ResultData SUCESS = new ResultData(OK, OK_MSG);
 
 
-    @ApiModelProperty(value = "状态码")
+    /**
+     * 状态码
+     */
     private String code = ERR;
-    @ApiModelProperty(value = "状态描述")
+    /**
+     * 状态描述
+     */
     private String msg = "";
-    @ApiModelProperty(value = "数据")
+    /**
+     * 数据
+     */
     private T data;
 
     /**
@@ -125,12 +129,12 @@ public class ResultData<T> implements Serializable {
 
     public ResultData() {}
 
-    public ResultData(String code, String message) {
+    private ResultData(String code, String message) {
         this.code = code;
         this.msg = message;
     }
 
-    public ResultData(String code, String message, T result) {
+    private ResultData(String code, String message, T result) {
         this.code = code;
         this.msg = message;
         this.data = result;

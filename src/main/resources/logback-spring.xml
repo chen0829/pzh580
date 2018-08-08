@@ -8,6 +8,7 @@ Base logback configuration provided for compatibility with Spring Boot 1.1
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
     <property name="log.path" value="/usr/local/580/logs" />
+    <!--<property name="log.path" value="D://usr/local/580/logs" />-->
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <encoder>
