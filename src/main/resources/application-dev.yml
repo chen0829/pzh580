@@ -32,6 +32,7 @@ openapi:
   account: pizhoushiyunheshequweishengfuwuzhongxin
   url: http://open.sq580.com
   #secretkey: 9AFB3UH2II6D0Q16
+  #hoscode: 320382101466669187
   hoscode: 430105021010001
   taskCorn: 0/30 * * * * ?
   appkey: sq580N4509I8OLO5A

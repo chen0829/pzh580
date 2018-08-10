@@ -29,7 +29,7 @@ openapi:
   account: pizhoushiyunheshequweishengfuwuzhongxin
   url: http://open.sq580.com
   secretkey: 9AFB3UH2II6D0Q16
-  hoscode: 430105021010001
+  hoscode: 320382101466669187
   taskCorn: 0/30 * * * * ?
 
 # openApi的配置-end
