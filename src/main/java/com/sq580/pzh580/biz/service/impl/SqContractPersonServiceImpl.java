@@ -57,4 +57,27 @@ public class SqContractPersonServiceImpl implements SqContractPersonService {
 
         return null;
     }
+
+    /**
+     * 批量插入社区580签约用户
+     * @param personList
+     * @return
+     */
+    @Override
+    public int insertContractData(List<SqContractPerson> personList) {
+        int count = sqContractPersonMapper.insertList(personList);
+        return count;
+    }
+
+    @Override
+    public int insertContractData(SqContractPerson person) {
+        int count = sqContractPersonMapper.insert(person);
+        return count;
+    }
+
+    @Override
+    public int updateContractData(SqContractPerson person) {
+        int count = sqContractPersonMapper.updateByPrimaryKeySelective(person);
+        return count;
+    }
 }
