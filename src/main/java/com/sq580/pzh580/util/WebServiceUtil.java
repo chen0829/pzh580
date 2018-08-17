@@ -138,7 +138,7 @@ public class WebServiceUtil {
         call.setReturnType(org.apache.axis.encoding.XMLType.SOAP_STRING);
         //这个也要注意 就是要加上要调用的方法Add,不然也会报错
         call.setSOAPActionURI("http://tempuri.org/"+method);
-        LOGGER.info("开始调用邳州东软接口方法");
+        LOGGER.info("开始调用上传接口方法");
         // 方法调用
         String result = (String) call.invoke(obj);
         return result;

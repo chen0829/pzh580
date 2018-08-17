@@ -2,7 +2,7 @@ package com.sq580.pzh580;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sq580.common.util.md5.MD5Helper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sq580.pzh580.biz.service.DoctorBaseDataService;
 import com.sq580.pzh580.biz.service.PzhContractPersonService;
 import com.sq580.pzh580.biz.service.SqContractPersonService;
@@ -11,6 +11,7 @@ import com.sq580.pzh580.persistence.auto.model.PzhContractPerson;
 import com.sq580.pzh580.persistence.auto.model.SqContractPerson;
 import com.sq580.pzh580.util.WebServiceUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.json.XML;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,14 +92,14 @@ public class Pzh580ApplicationTests {
         String resultFlag=jsonObject.getJSONObject("MSGFORM")
                 .getJSONObject("XMLDATA").getString("RESULTFLAG");
         log.info(resultFlag);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void testWebYun() {
         StringBuilder infoBuilder=new StringBuilder("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
 
-        String businessInfo="<NETHIS><TJJG><JKDAID>430111197111174019</JKDAID>" +
-                "<NJRQ>2015-4-15</NJRQ><ZRYS>佘雨晴</ZRYS><ZRYSDM>382452496</ZRYSDM>" +
+        String businessInfo="<NETHIS><TJJG><JKDAID>4301111971111740109</JKDAID>" +
+                "<NJRQ>2015-4-15</NJRQ><ZRYS>佘雨晴</ZRYS><ZRYSDM>382452499</ZRYSDM>" +
                 "<SSY>105</SSY><SZY>74</SZY><SG>135</SG><TZ>30</TZ><BMI>16.7</BMI>" +
                 "<KFXT></KFXT><STWD>36.3</STWD><NCGNDB></NCGNDB><NCGNT></NCGNT>" +
                 "<NCGNTT></NCGNTT><NCGNQX></NCGNQX><NCGQT></NCGQT><FCXDT></FCXDT>" +
@@ -106,17 +107,20 @@ public class Pzh580ApplicationTests {
                 "<XGJGDM>430105004010001</XGJGDM></TJJG></NETHIS>";
         infoBuilder.append(businessInfo);
         log.info(infoBuilder.toString());
-        Object[] obj={"HNKF","HNKF@01","GW31",businessInfo};
+        Object[] obj={"HNKF","HNKF@01","GW33",businessInfo};
         String endpoint="http://113.247.228.77:8081/NetHisWebService/NetHisWebService.asmx";
         String nameSpace="nethis_common_business";
         String[] params={"userId","userPassword","businessCode","businessInfo"};
         List<String> paramList=Arrays.asList(params);
         try {
             String result=WebServiceUtil.sendToKaiFuByWebService(endpoint,nameSpace,paramList,obj);
-            log.info("響應:{}",result);
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
+            //转为json串
+            org.json.JSONObject xmlJSONObj = XML.toJSONObject(result);
+            String jsonResult = xmlJSONObj.toString();
+            JSONObject jsonObject=JSONObject.parseObject(jsonResult);
+            String flag=jsonObject.getJSONObject("NewDataSet").getString("Table");
+            log.info(jsonResult);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }*/
