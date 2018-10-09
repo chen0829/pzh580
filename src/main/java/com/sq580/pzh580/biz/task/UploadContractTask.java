@@ -17,13 +17,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
-
-import javax.xml.bind.JAXBException;
-import java.net.MalformedURLException;
-import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
-import javax.xml.rpc.ServiceException;
 
 
 @Slf4j
@@ -41,10 +36,8 @@ public class UploadContractTask {
         log.info("开始上传咯");
         Date date=new Date();
         List<UploadContract> uploadContractList=matchContractMapper.selectUpContract();
+
         for (UploadContract uploadContract:uploadContractList) {
-            /*Example example=new Example(MatchContract.class);
-            Criteria criteria=example.createCriteria();
-            criteria.andEqualTo("idNumber",uploadContract.getIDNUMBER());*/
             try {
                 MatchContract contract=new MatchContract();
                 contract.setIdNumber(uploadContract.getIDNUMBER());
